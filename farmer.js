@@ -1,7 +1,7 @@
 const farmers = [
   { name: "Ramesh Patil", location: "Pune", crop: "Wheat", status: "Pending" },
   { name: "Suresh Kale", location: "Nashik", crop: "Onion", status: "Active" },
-  { name: "Mahesh Deshmukh", location: "Kolhapur", crop: "Sugarcane", status: "Blocked" }
+  { name: "Mahesh Deshmukh", location: "Kolhapur", crop: "", status: "Blocked" }
 ];
 
 const table = document.getElementById("farmerTable");
