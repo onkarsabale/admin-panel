@@ -137,7 +137,30 @@ button {
 .activate { background: #2ecc71; color: #fff; }
 .block { background: #e74c3c; color: #fff; }
 
-
+@media(max-width:768px){
+    .sidebar a{
+        display:flex;
+        align-items:center;
+        padding:13px 20px;
+        color:white;
+        text-decoration:none;
+        font-size:14px;
+    }
+    .sidebar{
+        width:230px;
+        height:100vh;
+        background:linear-gradient(180deg,#243b55,#1abc9c);
+        color:white;
+        position:fixed;
+        top:0;
+        left:0;
+        padding-top:25px;
+    }
+    .main{
+        margin-left:230px;
+        padding:25px;
+    }
+}
 
 
 </style>
