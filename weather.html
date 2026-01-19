@@ -73,14 +73,14 @@ body{
     font-size:14px;
     opacity:0.9;
 }
- 
-/* Inventory Card */
+
+/* Common Card */
 .card {
     background: #ffffff;
     padding: 20px;
     border-radius: 14px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .card h2 {
@@ -88,7 +88,58 @@ body{
     color: #1a3c40;
 }
 
-/* Table Styling */
+/* Weather Section */
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.weather-card {
+    background: linear-gradient(135deg, #1dbf9f, #1a6b73);
+    color: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.weather-card h3 {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.weather-card .value {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* Alerts Section */
+.alert {
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.alert.warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.alert.info {
+    background: #e7f5ff;
+    color: #0c5460;
+}
+
+.alert.danger {
+    background: #fdecea;
+    color: #a94442;
+}
+
+/* Notification Table */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -98,8 +149,8 @@ table {
 thead th {
     background: linear-gradient(90deg, #1dbf9f, #1a6b73);
     color: #ffffff;
-    text-align: left;
     padding: 14px;
+    text-align: left;
     font-weight: 600;
 }
 
@@ -113,16 +164,17 @@ tbody tr:hover {
     background-color: #f1f9f8;
 }
 
-/* Availability Status */
-.status-available {
+/* Notification Status */
+.sent {
     color: #1dbf9f;
     font-weight: 600;
 }
 
-.status-out {
-    color: #e74c3c;
+.pending {
+    color: #e67e22;
     font-weight: 600;
 }
+
 
     </style>
 </head>
@@ -147,51 +199,76 @@ tbody tr:hover {
 <div class="main">
 
     <div class="overview">
-        <h1>Inventory Control</h1>
+        <h1>Weather & Alerts</h1>
         <p>Quick summary of platform activity and system statistics</p>
     </div>
-     
-    <div class="card">
-            <h2>Product Inventory</h2>
+     <div class="card">
+        <h2>Current Weather</h2>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Quantity</th>
-                        <th>Farmer Name</th>
-                        <th>Availability Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Tomatoes</td>
-                        <td>Vegetables</td>
-                        <td>120 kg</td>
-                        <td>Farmer A</td>
-                        <td class="status-available">Available</td>
-                    </tr>
-                    <tr>
-                        <td>Wheat</td>
-                        <td>Grains</td>
-                        <td>0 kg</td>
-                        <td>Farmer B</td>
-                        <td class="status-out">Out of Stock</td>
-                    </tr>
-                    <tr>
-                        <td>Apples</td>
-                        <td>Fruits</td>
-                        <td>75 kg</td>
-                        <td>Farmer C</td>
-                        <td class="status-available">Available</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="weather-grid">
+            <div class="weather-card">
+                <h3>Rainfall</h3>
+                <div class="value">12 mm</div>
+            </div>
+            <div class="weather-card">
+                <h3>Temperature</h3>
+                <div class="value">29°C</div>
+            </div>
+            <div class="weather-card">
+                <h3>Humidity</h3>
+                <div class="value">68%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerts Section -->
+    <div class="card">
+        <h2>Farmer Alerts</h2>
+
+        <div class="alert warning">
+            <span>⚠ Heavy rain expected in the next 24 hours</span>
+            <span>Today</span>
         </div>
 
-    
+        <div class="alert info">
+            <span>ℹ Ideal weather for wheat harvesting</span>
+            <span>Today</span>
+        </div>
 
+        <div class="alert danger">
+            <span>🚨 Heatwave alert for fruit crops</span>
+            <span>Yesterday</span>
+        </div>
+    </div>
+
+    <!-- Notification Status -->
+    <div class="card">
+        <h2>Notification Status</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Farmer</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Farmer A</td>
+                    <td>Rain Alert</td>
+                    <td class="sent">Sent</td>
+                </tr>
+                <tr>
+                    <td>Farmer B</td>
+                    <td>Heatwave Warning</td>
+                    <td class="pending">Pending</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+     
 </div>
 
     

@@ -73,14 +73,13 @@ body{
     font-size:14px;
     opacity:0.9;
 }
- 
-/* Inventory Card */
+/* Card */
 .card {
     background: #ffffff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 14px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .card h2 {
@@ -88,7 +87,7 @@ body{
     color: #1a3c40;
 }
 
-/* Table Styling */
+/* Price Table */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -98,8 +97,8 @@ table {
 thead th {
     background: linear-gradient(90deg, #1dbf9f, #1a6b73);
     color: #ffffff;
-    text-align: left;
     padding: 14px;
+    text-align: left;
     font-weight: 600;
 }
 
@@ -113,18 +112,38 @@ tbody tr:hover {
     background-color: #f1f9f8;
 }
 
-/* Availability Status */
-.status-available {
+/* Suggested Price Highlight */
+.suggested {
     color: #1dbf9f;
     font-weight: 600;
 }
 
-.status-out {
-    color: #e74c3c;
-    font-weight: 600;
+/* Dummy Price Trend Graph */
+.graph {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    height: 200px;
+    margin-top: 20px;
 }
 
-    </style>
+.bar {
+    width: 50px;
+    background: linear-gradient(180deg, #1dbf9f, #1a6b73);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+}
+
+.bar span {
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+ </style>
 </head>
 <body>
     
@@ -147,51 +166,54 @@ tbody tr:hover {
 <div class="main">
 
     <div class="overview">
-        <h1>Inventory Control</h1>
+        <h1>Pricing & Prediction</h1>
         <p>Quick summary of platform activity and system statistics</p>
     </div>
-     
-    <div class="card">
-            <h2>Product Inventory</h2>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Quantity</th>
-                        <th>Farmer Name</th>
-                        <th>Availability Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Tomatoes</td>
-                        <td>Vegetables</td>
-                        <td>120 kg</td>
-                        <td>Farmer A</td>
-                        <td class="status-available">Available</td>
-                    </tr>
-                    <tr>
-                        <td>Wheat</td>
-                        <td>Grains</td>
-                        <td>0 kg</td>
-                        <td>Farmer B</td>
-                        <td class="status-out">Out of Stock</td>
-                    </tr>
-                    <tr>
-                        <td>Apples</td>
-                        <td>Fruits</td>
-                        <td>75 kg</td>
-                        <td>Farmer C</td>
-                        <td class="status-available">Available</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
     
+    <!-- Price Table -->
+    <div class="card">
+        <h2>Product Price Table</h2>
 
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Current Price (₹/kg)</th>
+                    <th>Suggested Price (₹/kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tomatoes</td>
+                    <td>₹28</td>
+                    <td class="suggested">₹32</td>
+                </tr>
+                <tr>
+                    <td>Wheat</td>
+                    <td>₹22</td>
+                    <td class="suggested">₹25</td>
+                </tr>
+                <tr>
+                    <td>Apples</td>
+                    <td>₹60</td>
+                    <td class="suggested">₹68</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Dummy Price Trend Graph -->
+    <div class="card">
+        <h2>Price Trend</h2>
+
+        <div class="graph">
+            <div class="bar" style="height: 120px;"><span>Jan</span></div>
+            <div class="bar" style="height: 150px;"><span>Feb</span></div>
+            <div class="bar" style="height: 100px;"><span>Mar</span></div>
+            <div class="bar" style="height: 180px;"><span>Apr</span></div>
+            <div class="bar" style="height: 160px;"><span>May</span></div>
+        </div>
+     
 </div>
 
     
