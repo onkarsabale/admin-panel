@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Farmer Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li class="active">Dashboard</li>
+      <li>Farmers</li>
+      <li>Buyers</li>
+      <li>Inventory</li>
+      <li>Pricing</li>
+      <li>Weather</li>
+      <li>Reports</li>
+      <li>Users</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>Farmer Management</h1>
+
+    <!-- Filter -->
+    <div class="filters">
+      <select>
+        <option>All Status</option>
+        <option>Active</option>
+        <option>Pending</option>
+        <option>Blocked</option>
+      </select>
+    </div>
+
+    <!-- Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Farmer Name</th>
+          <th>Location</th>
+          <th>Crop</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="farmerTable">
+        <!-- JS will load rows -->
+      </tbody>
+    </table>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
