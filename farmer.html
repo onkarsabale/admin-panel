@@ -7,50 +7,70 @@
 </head>
 <head>
     <style>
-        body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
 }
 
-.container {
-  display: flex;
-  height: 100vh;
+.sidebar{
+    width:230px;
+    height:100vh;
+    background:linear-gradient(180deg,#243b55,#1abc9c);
+    color:white;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top:25px;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 220px;
-  background: #243b55;
-  color: #fff;
-  padding: 20px;
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:18px;
 }
 
-.sidebar h2 {
-  margin-bottom: 20px;
+.sidebar a{
+    display:flex;
+    align-items:center;
+    padding:13px 20px;
+    color:white;
+    text-decoration:none;
+    font-size:14px;
 }
 
-.sidebar ul {
-  list-style: none;
+.sidebar a span{
+    margin-right:10px;
+    font-size:16px;
 }
 
-.sidebar li {
-  padding: 10px;
-  cursor: pointer;
+.sidebar a:hover{
+    background:rgba(255,255,255,0.15);
 }
 
-.sidebar li.active,
-.sidebar li:hover {
-  background: #1e90ff;
-  border-radius: 5px;
+.main{
+    margin-left:230px;
+    padding:25px;
 }
 
-/* Main */
-.main {
-  flex: 1;
-  padding: 20px;
-  background: #f4f6f9;
+.overview{
+    background:linear-gradient(135deg,#1abc9c,#243b55);
+    color:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin-bottom:30px;
+}
+
+.overview h1{
+    margin:0;
+    font-size:26px;
+}
+
+.overview p{
+    margin-top:8px;
+    font-size:14px;
+    opacity:0.9;
 }
 
 .filters {
@@ -121,26 +141,29 @@ button {
 <body>
 
 <div class="container">
-  <!-- Sidebar -->
-  <aside class="sidebar">
+
+
+    <div class="sidebar">
     <h2>Admin Panel</h2>
-    <ul>
-      <li class="active">Dashboard</li>
-      <li>Farmers</li>
-      <li>Buyers</li>
-      <li>Inventory</li>
-      <li>Pricing</li>
-      <li>Weather</li>
-      <li>Reports</li>
-      <li>Users</li>
-    </ul>
-  </aside>
+    <a href="dashboard.html"><span>🏠</span>Admin Dashboard</a>
+    <a href="farmer.html"><span>👨‍🌾</span>Farmer Management</a>
+    <a href="buyer.html"><span>🛒</span>Buyer Management</a>
+    <a onclick="openPage('Inventory')"><span>📦</span>Inventory Control</a>
+    <a onclick="openPage('Pricing')"><span>💰</span>Pricing & Prediction</a>
+    <a onclick="openPage('Weather')"><span>☁️</span>Weather & Alerts</a>
+    <a onclick="openPage('Reports')"><span>📊</span>Reports & Analytics</a>
+    <a onclick="openPage('Users')"><span>👤</span>User Management</a>
+    <a onclick="openPage('Logs')"><span>🧾</span>Logs & Audit Trail</a>
+    <a onclick="logout()" href="admin.html"><span>🚪</span>Logout</a>
+</div>
 
-  <!-- Main Content -->
-  <main class="main">
-    <h1>Farmer Management</h1>
+  <div class="main">
+    <div class="overview">
+        <h1>Farmer Management</h1>
+        <p>Manage and monitor all farmers on the platform</p>
+    </div>
 
-    <!-- Filter -->
+    
     <div class="filters">
       <select>
         <option>All Status</option>
