@@ -1,20 +1,20 @@
 const buyers = [
   {
-    name: "Amit Traders",
+    name: "Buyer One",
     purchases: 12,
-    contact: "amit@traders.com",
+    contact: "buyerone@gmail.com",
     status: "Active"
   },
   {
-    name: "Green Mart",
+    name: "Buyer Two",
     purchases: 4,
-    contact: "greenmart@gmail.com",
+    contact: "buyertwo@gmail.com",
     status: "Pending"
   },
   {
-    name: "Fresh Foods",
+    name: "Buyer Three",
     purchases: 0,
-    contact: "fresh@foods.in",
+    contact: "buyerthree@gmail.com",
     status: "Blocked"
   }
 ];
