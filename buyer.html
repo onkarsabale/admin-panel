@@ -72,7 +72,7 @@ body{
     opacity:0.9;
 }
 
-/* Filters */
+
 .filters {
   display: flex;
   gap: 10px;
@@ -86,12 +86,12 @@ body{
   width: 200px;
 }
 
-/* Table wrapper for mobile scroll */
+
 .table-wrapper {
   overflow-x: auto;
 }
 
-/* Table */
+
 table {
     width:100%;
     border-collapse:collapse;
@@ -114,7 +114,7 @@ th {
     font-size:14px;
 }
 
-/* Status */
+
 .status {
   padding: 5px 10px;
   border-radius: 12px;
@@ -126,7 +126,6 @@ th {
 .pending { background: orange; }
 .blocked { background: red; }
 
-/* Buttons */
 button {
   padding: 6px 10px;
   border: none;
@@ -185,7 +184,7 @@ button {
     <a onclick="openPage('Reports')"><span>📊</span>Reports & Analytics</a>
     <a onclick="openPage('Users')"><span>👤</span>User Management</a>
     <a onclick="openPage('Logs')"><span>🧾</span>Logs & Audit Trail</a>
-    <a href="admin.html""><span>🚪</span>Logout</a>
+    <a onclick="logout()"><span>🚪</span>Logout</a>
 </div>
   
 
