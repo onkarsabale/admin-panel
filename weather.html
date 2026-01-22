@@ -101,6 +101,7 @@ body{
 .weather-card {
     background: linear-gradient(135deg, #1dbf9f, #1a6b73);
     padding: 25px;
+    padding-top: 0px;
     border-radius: 14px;
     text-align: center;
     margin-bottom: 0px;
@@ -153,41 +154,6 @@ body{
 }
 
 
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-thead th {
-    background: linear-gradient(90deg, #1dbf9f, #1a6b73);
-    color: #ffffff;
-    padding: 14px;
-    text-align: left;
-    font-weight: 600;
-}
-
-tbody td {
-    padding: 14px;
-    border-bottom: 1px solid #eaeaea;
-    color: #333;
-}
-
-tbody tr:hover {
-    background-color: #f1f9f8;
-}
-
-
-.sent {
-    color: #1dbf9f;
-    font-weight: 600;
-}
-
-.pending {
-    color: #e67e22;
-    font-weight: 600;
-}
 
 
     </style>
@@ -259,61 +225,43 @@ tbody tr:hover {
     
     <div class="card">
         <h2>Farmer Alerts History</h2>
-        <div id="alert-history-container">
-    
+        <div id="alert-history">
+            <div id="empty-history" class="alert-history empty">
+                No alerts have been sent yet. Trigger a weather alert to notify farmers.
+            </div>
         </div>
-        <div class="alert-history">
-            <span>Heavy rain expected in the next 24 hours</span>
-            <span>Today</span>
-        </div>
-
     </div>
 
-    <div class="card">
-        <h2>Notification Status</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Farmer</th>
-                    <th>Message</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Farmer A</td>
-                    <td>Rain Alert</td>
-                    <td class="sent">Sent</td>
-                </tr>
-                <tr>
-                    <td>Farmer B</td>
-                    <td>Heatwave Warning</td>
-                    <td class="pending">Pending</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 
      
 </div>
 
   <script>
-document.querySelectorAll(".alert-Button").forEach(button => {
+    document.querySelectorAll(".alert-Button").forEach(button => {
     button.addEventListener("click", () => {
 
+        // Detect weather type
         const card = button.closest(".weather-card");
-        const type = card.dataset.type;
-        const message = `${type} alert sent to farmers`;
-        const historyContainer = document.getElementById("alert-history-container");
-        const alertDiv = document.createElement("div");
-        alertDiv.className = "alert-history";
-        alertDiv.innerHTML = `
-            <span>⚠ ${message}</span>
+        const type = card.querySelector(".weather-card-heading").innerText;
+
+        // Remove empty message ON FIRST ALERT
+        const emptyMsg = document.getElementById("empty-history");
+        if (emptyMsg) emptyMsg.remove();
+
+        // Create alert history item
+        const history = document.getElementById("alert-history");
+
+        const alertItem = document.createElement("div");
+        alertItem.className = "alert-history";
+        alertItem.innerHTML = `
+            <span>⚠ ${type} alert sent to farmers</span>
             <span>${new Date().toLocaleString()}</span>
         `;
-        historyContainer.prepend(alertDiv);
-        alert(`${type} alert sent successfully!`);
+
+        history.prepend(alertItem);
+
+        // Popup confirmation
+        alert("Alert sent to farmers!");
     });
 });
 </script>
