@@ -143,6 +143,28 @@ tbody tr:hover {
     font-size: 14px;
     color: #555;
 }
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #1dbf9f;
+    color: white;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #148f7a;
+}
+
+td button {
+    margin: 0 5px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
 
  </style>
 </head>
@@ -172,36 +194,58 @@ tbody tr:hover {
     </div>
     
    
-    <div class="card">
-        <h2>Product Price Table</h2>
+   <div class="card">
+    <h2>Manage Crop Prices</h2>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Current Price (₹/kg)</th>
-                    <th>Suggested Price (₹/kg)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Tomatoes</td>
-                    <td>₹28</td>
-                    <td class="suggested">₹32</td>
-                </tr>
-                <tr>
-                    <td>Wheat</td>
-                    <td>₹22</td>
-                    <td class="suggested">₹25</td>
-                </tr>
-                <tr>
-                    <td>Apples</td>
-                    <td>₹60</td>
-                    <td class="suggested">₹68</td>
-                </tr>
-            </tbody>
-        </table>
+    <table id="priceTable">
+        <thead>
+            <tr>
+                <th id="selectHeader">S.No</th>
+                <th>Product</th>
+                <th>Current Price (₹/kg)</th>
+                <th>Suggested Price (₹/kg)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+               <td class="serial">1</td>
+                <td>Tomatoes</td>
+                <td>28</td>
+                <td>
+                    <button onclick="changePrice(this, -1)">−</button>
+                    <span class="suggested">32</span>
+                    <button onclick="changePrice(this, 1)">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="serial">2</td>
+                <td>Wheat</td>
+                <td>22</td>
+                <td>
+                    <button onclick="changePrice(this, -1)">−</button>
+                    <span class="suggested">25</span>
+                    <button onclick="changePrice(this, 1)">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="serial">3</td>
+                <td>Apples</td>
+                <td>60</td>
+                <td>
+                    <button onclick="changePrice(this, -1)">−</button>
+                    <span class="suggested">68</span>
+                    <button onclick="changePrice(this, 1)">+</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top:20px; display:flex; gap:10px;">
+        <button onclick="addProduct()">➕ Add Product</button>
+        <button onclick="deleteProducts()">🗑️ Delete </button>
     </div>
+</div>
+
 
 
     <div class="card">
@@ -216,7 +260,7 @@ tbody tr:hover {
         </div>
      
 </div>
-
+<script src="pricing.js"></script>
     
 </body>
 </html>
