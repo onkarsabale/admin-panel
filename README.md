@@ -15,7 +15,7 @@ This project is developed collaboratively with contributions from the following 
   GitHub: https://github.com/onkarsabale
 
 - **Aditya Hase** 
-  GitHub: https://github.com/adiity-ya
+  GitHub: https://github.com/adiit-tya
 
 - **Pushkraj Sonawane**   
   GitHub: https://github.com/pushkrajsonawane
