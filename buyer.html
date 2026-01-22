@@ -87,10 +87,6 @@ body{
 }
 
 
-.table-wrapper {
-  overflow-x: auto;
-}
-
 
 table {
     width:100%;
@@ -123,36 +119,92 @@ th {
 }
 
 .active {
-  background: #e8f5e9;        /* soft green */
-  color: #2e7d32;
-  border: 1.5px solid #2e7d32;
+  background: linear-gradient(135deg, #1abc9c, #159a80);
+  color: #ffffff;
+  border: none;
+  padding: 7px 15px;
+  font-size: 12px;
+  font-weight: 200;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(26,188,156,0.35);
 }
 
 .pending {
-  background: #fff8e1;        /* soft amber */
-  color: #ff8f00;
-  border: 1.5px solid #ff8f00;
+  background: linear-gradient(135deg, #f6c453, #e0a800);
+  color: #1f2937;
+  border: none;
+  padding: 7px 15px;
+  font-size: 12px;
+  font-weight: 200;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(246,196,83,0.35);
 }
 
 .blocked {
-  background: #fdecea;        /* soft red */
-  color: #c62828;
-  border: 1.5px solid #c62828;
-}
-
-
-button {
-  padding: 6px 10px;
+  background: linear-gradient(135deg, #e5533d, #c2412d);
+  color: #ffffff;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  padding: 7px 15px;
+  font-size: 12px;
+  font-weight: 200;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(229,83,61,0.35);
 }
 
-.view { background: #e3f2fd; color: #1565c0; border: 1.5px solid #4a90e2; }
-.activate { background: #e8f5e9; color: #2e7d32;  border: 1.5px solid #5cb85c;}
-.block { background: #fdecea; color: #c62828;  border: 1.5px solid #d9534f; }
+.view {  
+    background: linear-gradient(135deg, #2c7be5, #1f5fbf);
+    color: #ffffff;
+    border: none;
+    padding: 7px 15px;
+    font-size: 12px;
+    font-weight: 200;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(44,123,229,0.35);
+    transition: all 0.2s ease; 
+}
+
+.activate {   
+    background: linear-gradient(135deg, #1abc9c, #159a80);
+    color: #ffffff;
+    border: none;
+    padding: 7px 15px;
+    font-size: 12px;
+    font-weight:200;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(26,188,156,0.35);
+    transition: all 0.2s ease;
+}
+
+.block {   
+    background: linear-gradient(135deg, #e5533d, #c2412d);
+    color: #ffffff;
+    border: none;
+    padding: 7px 15px;
+    font-size: 12px;
+    font-weight: 200;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(229,83,61,0.35);
+    transition: all 0.2s ease;
+}
+
+.view:hover,
+.activate:hover,
+.block:hover {
+  filter: brightness(1.10);
+}
+
+.view:hover,        
+.activate:hover,
+.block:hover {
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+
+
 
 @media(max-width:768px){
     .sidebar a{
