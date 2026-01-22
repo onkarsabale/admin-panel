@@ -197,6 +197,10 @@ input[type="checkbox"] {
     display: flex;
     gap: 10px;
 }
+#activityTable tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
 
 
 
@@ -249,14 +253,14 @@ input[type="checkbox"] {
             </tr>
         </thead>
         <tbody>
-           <tr>
-               <td class="serial">1</td>
+            <tr>
+                <td class="serial">1</td>
                 <td>Tomatoes</td>
                 <td>28</td>
                 <td>
-                    <button onclick="changePrice(this, -1)">−</button>
+                    <button onclick="changePrice(this,-1)">−</button>
                     <span class="suggested">32</span>
-                    <button onclick="changePrice(this, 1)">+</button>
+                    <button onclick="changePrice(this,1)">+</button>
                 </td>
             </tr>
             <tr>
@@ -264,9 +268,9 @@ input[type="checkbox"] {
                 <td>Wheat</td>
                 <td>22</td>
                 <td>
-                    <button onclick="changePrice(this, -1)">−</button>
+                    <button onclick="changePrice(this,-1)">−</button>
                     <span class="suggested">25</span>
-                    <button onclick="changePrice(this, 1)">+</button>
+                    <button onclick="changePrice(this,1)">+</button>
                 </td>
             </tr>
             <tr>
@@ -274,9 +278,9 @@ input[type="checkbox"] {
                 <td>Apples</td>
                 <td>60</td>
                 <td>
-                    <button onclick="changePrice(this, -1)">−</button>
+                    <button onclick="changePrice(this,-1)">−</button>
                     <span class="suggested">68</span>
-                    <button onclick="changePrice(this, 1)">+</button>
+                    <button onclick="changePrice(this,1)">+</button>
                 </td>
             </tr>
         </tbody>
@@ -289,6 +293,23 @@ input[type="checkbox"] {
 
 </div>
 
+<div class="card">
+    <h2>Admin Activity Log</h2>
+
+    <table id="activityTable">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Admin</th>
+                <th>Action</th>
+                <th>Date & Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- details -->
+        </tbody>
+    </table>
+</div>
 
 
     <div class="card">

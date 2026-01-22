@@ -1,6 +1,8 @@
 let deleteMode = false;
 let isAuthorized = false;
 let priceChanged = false; 
+const CURRENT_ADMIN = "Admin XYZ"; 
+let activityCount = 0;
 
 
 
@@ -44,6 +46,7 @@ function changePrice(btn, value) {
 
     priceSpan.innerText = newPrice;
     priceChanged = true;
+    logActivity("Changed product price");
 }
 
 
@@ -89,6 +92,7 @@ function addProduct() {
     tbody.appendChild(row);
     updateSerialNumbers();
     priceChanged = true;
+    logActivity("Added new product");
 }
 
 
@@ -129,6 +133,8 @@ function deleteProducts() {
     header.innerText = "S.No";
     deleteMode = false;
     updateSerialNumbers();
+    logActivity("Deleted product");
+
 }
 window.addEventListener("pagehide", function () {
     if (priceChanged) {
@@ -136,4 +142,21 @@ window.addEventListener("pagehide", function () {
         priceChanged = false;
     }
 });
+function logActivity(actionText) {
+    let tbody = document.querySelector("#activityTable tbody");
+    activityCount++;
+
+    let now = new Date().toLocaleString();
+
+    let row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${activityCount}</td>
+        <td>${CURRENT_ADMIN}</td>
+        <td>${actionText}</td>
+        <td>${now}</td>
+    `;
+
+    tbody.appendChild(row);
+}
+
 
