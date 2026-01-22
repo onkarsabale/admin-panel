@@ -14,7 +14,7 @@ This project is developed collaboratively with contributions from the following 
 - **Onkar Sabale** — Project Lead  
   GitHub: https://github.com/onkarsabale
 
-- **Aditya Hase**
+- **Aditya Hase**                                                                                                                                                         
   GitHub: https://github.com/adiit-tya
 
 - **Pushkraj Sonawane**   
