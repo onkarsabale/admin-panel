@@ -326,7 +326,23 @@ tbody tr:hover {
 </div>
 
     <script>   
-       
+        document.querySelectorAll(".alert-Button").forEach(btn => {
+            btn.addEventListener("click", () => {
+                alert("Alert sent to farmers!");
+            });
+        });
+
+        const weatherCards = document.querySelectorAll(".weather-card");
+        weatherCards.forEach(card => {
+            card.addEventListener("click", () => {
+                const contentDiv = card.querySelector("div");
+                if (contentDiv.style.display === "block") {
+                    contentDiv.style.display = "none";
+                } else {
+                    contentDiv.style.display = "block";
+                }
+            });
+        });
     </script>
 
 </body>
