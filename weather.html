@@ -7,7 +7,9 @@
 </head>
 <head>
     <style>
-        
+    *{
+        box-sizing: border-box;
+    } 
 body{
     margin:0;
     font-family:Arial, sans-serif;
@@ -108,32 +110,12 @@ body{
 .weather-card-heading {
         color: #ffffff !important;
 }
-.rainfall {
+.weather-cities {
     position:absolute;
     background: linear-gradient(135deg, #1dbf9f, #1a6b73);
     display: none;
-    color: #ffffff;
-    top: 0px;
-    border-radius: 14px;
-    left:0%;
-    border: 2px solid rgb(250, 245, 245);
-    width:100%;
-}
-.temperature {
-    position:absolute;
-    background: linear-gradient(135deg, #1dbf9f, #1a6b73);
-    display: none;
-    color: #ffffff;
-    top: 0px;
-    border-radius: 14px;
-    left:0%;
-    border: 2px solid rgb(250, 245, 245);
-    width:100%;
-}
-.humidity {
-    position:absolute;
-    background: linear-gradient(135deg, #1dbf9f, #1a6b73);
-    display: none;
+    text-align: left;
+    padding: 20px;
     color: #ffffff;
     top: 0px;
     border-radius: 14px;
@@ -248,7 +230,7 @@ tbody tr:hover {
         <div class="weather-grid">
             <div class="weather-card">
                 <h2 class="weather-card-heading">Rainfall</h2>
-                <div class="rainfall">
+                <div class="weather-cities">
                     <h3>Pune : 20mm</h3>
                     <h3>Nashik : 15mm</h3>
                     <h3>Sangamner : 10mm</h3>
@@ -257,7 +239,7 @@ tbody tr:hover {
             </div>
             <div class="weather-card">
                 <h2 class="weather-card-heading">Temperature</h2>
-                <div class="temperature">
+                <div class="weather-cities">
                     <h3>Pune : 30°C</h3>
                     <h3>Nashik : 28°C</h3>
                     <h3>Sangamner : 32°C</h3>
@@ -266,7 +248,7 @@ tbody tr:hover {
             </div>
             <div class="weather-card">
                 <h2 class="weather-card-heading">Humidity</h2>
-                <div class="humidity">
+                <div class="weather-cities">
                     <h3>Pune : 70%</h3>
                     <h3>Nashik : 65%</h3>
                     <h3>Sangamner : 75%</h3>
