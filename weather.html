@@ -310,7 +310,7 @@ document.querySelectorAll(".alert-Button").forEach(button => {
         alertDiv.className = "alert-history";
         alertDiv.innerHTML = `
             <span>⚠ ${message}</span>
-            <span>${new Date().toLocaleDateString()}</span>
+            <span>${new Date().toLocaleString()}</span>
         `;
         historyContainer.prepend(alertDiv);
         alert(`${type} alert sent successfully!`);
