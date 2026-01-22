@@ -122,9 +122,24 @@ th {
   font-size: 12px;
 }
 
-.active { background: green; }
-.pending { background: orange; }
-.blocked { background: red; }
+.active {
+  background: #e8f5e9;        /* soft green */
+  color: #2e7d32;
+  border: 1.5px solid #2e7d32;
+}
+
+.pending {
+  background: #fff8e1;        /* soft amber */
+  color: #ff8f00;
+  border: 1.5px solid #ff8f00;
+}
+
+.blocked {
+  background: #fdecea;        /* soft red */
+  color: #c62828;
+  border: 1.5px solid #c62828;
+}
+
 
 button {
   padding: 6px 10px;
@@ -135,9 +150,9 @@ button {
   margin-bottom: 5px;
 }
 
-.view { background: #3498db; color: #fff; }
-.activate { background: #2ecc71; color: #fff; }
-.block { background: #e74c3c; color: #fff; }
+.view { background: #e3f2fd; color: #1565c0; border: 1.5px solid #4a90e2; }
+.activate { background: #e8f5e9; color: #2e7d32;  border: 1.5px solid #5cb85c;}
+.block { background: #fdecea; color: #c62828;  border: 1.5px solid #d9534f; }
 
 @media(max-width:768px){
     .sidebar a{
