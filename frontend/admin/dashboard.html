@@ -172,8 +172,8 @@ body{
 
 <body>
 
-
-<div class="sidebar">
+<div id="status">
+    <div class="sidebar">
     <h2>Admin Panel</h2>
     <a href="dashboard.html"><span>🏠</span>Admin Dashboard</a>
     <a href="farmer.html"><span>👨‍🌾</span>Farmer Management</a>
@@ -247,21 +247,10 @@ body{
     </div>
 
 </div>
+</div>
 
-<script>
-function openPage(page){
-    alert("Opening " + page + " page");
-}
 
-function viewActivity(user){
-    alert("Viewing activity of " + user);
-}
-
-function logout(){
-    alert("Logged out successfully");
-    window.location.href="auth.html";
-}
-</script>
+<script src="dashboard.js"></script>
 
 </body>
 </html>

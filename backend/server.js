@@ -1,3 +1,6 @@
+require("dotenv").config();
+console.log("SERVER.JS IS RUNNING");
+
 const app = require("./app");
 const connectDB = require("./config/db");
 

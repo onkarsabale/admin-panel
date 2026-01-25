@@ -1,4 +1,4 @@
-const Admin = require("../models/Admin")   // still correct
+const Admin = require("../models/Admin");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -16,8 +16,8 @@ exports.loginAdmin = async (req, res) => {
   }
 
   const token = jwt.sign(
-    { id: admin._id, role: "admin" },
-    "secretkey",
+    { id: admin._id },
+    process.env.JWT_SECRET,
     { expiresIn: "1d" }
   );
 

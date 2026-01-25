@@ -1,49 +1,33 @@
-const farmers = [
-  { name: "Farmer One", location: "Pune", crop: "Wheat", status: "Pending" },
-  { name: "Farmer Two", location: "Nashik", crop: "Onion", status: "Blocked" },
-  { name: "Farmer Three", location: "Sangamner", crop: "Pomogranete", status: "Active" }
-];
+requireAuth();
 
-const table = document.getElementById("farmerTable");
+const API_BASE = "http://localhost:5000/api";
+const token = localStorage.getItem("token");
 
-function loadFarmers() {
-  table.innerHTML = "";
+async function loadFarmers() {
+  try {
+    const res = await fetch(`${API_BASE}/farmers`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
 
-  farmers.forEach((farmer, index) => {
-    const row = document.createElement("tr");
+    const farmers = await res.json();
 
-    row.innerHTML = `
-      <td>${farmer.name}</td>
-      <td>${farmer.location}</td>
-      <td>${farmer.crop}</td>
-      <td>
-        <span class="status ${farmer.status.toLowerCase()}">
-          ${farmer.status}
-        </span>
-      </td>
-      <td>
-        <button class="view" onclick="viewFarmer(${index})">View</button>
-        <button class="approve" onclick="approveFarmer(${index})">Approve</button>
-        <button class="block" onclick="blockFarmer(${index})">Block</button>
-      </td>
-    `;
+    const table = document.getElementById("farmersTable");
+    table.innerHTML = "";
 
-    table.appendChild(row);
-  });
-}
-
-function viewFarmer(index) {
-  alert(JSON.stringify(farmers[index], null, 2));
-}
-
-function approveFarmer(index) {
-  farmers[index].status = "Active";
-  loadFarmers();
-}
-
-function blockFarmer(index) {
-  farmers[index].status = "Blocked";
-  loadFarmers();
+    farmers.forEach(f => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${f.name}</td>
+        <td>${f.phone}</td>
+        <td>${f.location}</td>
+      `;
+      table.appendChild(row);
+    });
+  } catch (err) {
+    alert("Failed to load farmers");
+  }
 }
 
 loadFarmers();
