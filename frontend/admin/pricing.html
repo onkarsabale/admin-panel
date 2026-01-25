@@ -232,64 +232,58 @@ input[type="checkbox"] {
 
 <div class="card price-lock-wrapper">
 
-    <div id="priceLock" class="price-lock">
-        <div class="lock-box">
-            <h3>🔒 Price Management Locked</h3>
-            <input type="password" id="adminPass" placeholder="Enter Admin Password">
-            <button onclick="unlockPricing()">Unlock</button>
-            <p id="lockMsg"></p>
+    <h2>Add New Pricing</h2>
+    <form id="pricingForm" style="margin-bottom: 30px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div>
+                <label>Crop Name *</label>
+                <input type="text" id="cropName" placeholder="e.g., Rice" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            <div>
+                <label>Current Price (₹) *</label>
+                <input type="number" id="currentPrice" placeholder="50" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            <div>
+                <label>Previous Price (₹)</label>
+                <input type="number" id="previousPrice" placeholder="45" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            <div>
+                <label>Min Price (₹)</label>
+                <input type="number" id="minPrice" placeholder="40" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            <div>
+                <label>Max Price (₹)</label>
+                <input type="number" id="maxPrice" placeholder="60" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            <div>
+                <label>Market *</label>
+                <input type="text" id="market" placeholder="e.g., Delhi Market" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
         </div>
-    </div>
+        <button type="button" onclick="createPricing()" style="margin-top: 15px; background: #1dbf9f; padding: 10px 20px;">➕ Add Pricing</button>
+    </form>
 
     <h2>Manage Crop Prices</h2>
 
     <table id="priceTable">
         <thead>
             <tr>
-                <th id="selectHeader">S.No</th>
-                <th>Product</th>
-                <th>Current Price (₹/kg)</th>
-                <th>Suggested Price (₹/kg)</th>
+                <th>Crop Name</th>
+                <th>Current Price</th>
+                <th>Previous Price</th>
+                <th>Min Price</th>
+                <th>Max Price</th>
+                <th>Market</th>
+                <th>Change %</th>
+                <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="pricingTable">
             <tr>
-                <td class="serial">1</td>
-                <td>Tomatoes</td>
-                <td>28</td>
-                <td>
-                    <button onclick="changePrice(this,-1)">−</button>
-                    <span class="suggested">32</span>
-                    <button onclick="changePrice(this,1)">+</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="serial">2</td>
-                <td>Wheat</td>
-                <td>22</td>
-                <td>
-                    <button onclick="changePrice(this,-1)">−</button>
-                    <span class="suggested">25</span>
-                    <button onclick="changePrice(this,1)">+</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="serial">3</td>
-                <td>Apples</td>
-                <td>60</td>
-                <td>
-                    <button onclick="changePrice(this,-1)">−</button>
-                    <span class="suggested">68</span>
-                    <button onclick="changePrice(this,1)">+</button>
-                </td>
+                <td colspan="8" style="text-align: center; color: #999;">Loading pricing data...</td>
             </tr>
         </tbody>
     </table>
-
-    <div class="actions">
-        <button onclick="addProduct()">➕ Add Product</button>
-        <button onclick="deleteProducts()">🗑️ Delete</button>
-    </div>
 
 </div>
 

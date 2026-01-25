@@ -152,39 +152,65 @@ tbody tr:hover {
     </div>
      
     <div class="card">
+        <h2>Add New Inventory Item</h2>
+        <form id="inventoryForm" style="margin-bottom: 30px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div>
+                    <label>Crop Name *</label>
+                    <input type="text" id="cropName" placeholder="e.g., Rice" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                </div>
+                <div>
+                    <label>Quantity (kg) *</label>
+                    <input type="number" id="quantity" placeholder="1000" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                </div>
+                <div>
+                    <label>Warehouse *</label>
+                    <input type="text" id="warehouse" placeholder="e.g., Main Warehouse" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                </div>
+                <div>
+                    <label>Location</label>
+                    <input type="text" id="location" placeholder="e.g., Shelf A-1" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                </div>
+                <div>
+                    <label>Batch Number</label>
+                    <input type="text" id="batchNumber" placeholder="e.g., BATCH-001" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                </div>
+                <div>
+                    <label>Quality</label>
+                    <select id="quality" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                        <option value="Good">Good</option>
+                        <option value="Average">Average</option>
+                        <option value="Poor">Poor</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Min Stock Level</label>
+                    <input type="number" id="minStockLevel" placeholder="100" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                </div>
+            </div>
+            <button type="button" onclick="createInventoryItem()" style="margin-top: 15px; background: #1dbf9f; padding: 10px 20px;">➕ Add Inventory Item</button>
+        </form>
+    </div>
+    
+    <div class="card">
             <h2>Product Inventory</h2>
 
             <table>
                 <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Category</th>
+                        <th>Crop Name</th>
                         <th>Quantity</th>
-                        <th>Farmer Name</th>
-                        <th>Availability Status</th>
+                        <th>Warehouse</th>
+                        <th>Location</th>
+                        <th>Batch Number</th>
+                        <th>Quality</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="inventoryTable">
                     <tr>
-                        <td>Tomatoes</td>
-                        <td>Vegetables</td>
-                        <td>120 kg</td>
-                        <td>Farmer A</td>
-                        <td class="status-available">Available</td>
-                    </tr>
-                    <tr>
-                        <td>Wheat</td>
-                        <td>Grains</td>
-                        <td>0 kg</td>
-                        <td>Farmer B</td>
-                        <td class="status-out">Available</td>
-                    </tr>
-                    <tr>
-                        <td>Apples</td>
-                        <td>Fruits</td>
-                        <td>100 kg</td>
-                        <td>Farmer C</td>
-                        <td class="status-available">Available</td>
+                        <td colspan="8" style="text-align: center; color: #999;">Loading inventory data...</td>
                     </tr>
                 </tbody>
             </table>
