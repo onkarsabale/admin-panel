@@ -11,8 +11,11 @@ It provides UI interfaces for weather alerts, farmer notifications, and other ad
 
 This project is developed collaboratively with contributions :
 
-- **Onkar Sabale**                                  - **Aditya Hase**                                                                                                                                               
-  GitHub: https://github.com/onkarsabale              GitHub: https://github.com/adiit-tya
+- **Onkar Sabale**
+  GitHub: https://github.com/onkarsabale
+  
+-  **Aditya Hase**
+  GitHub: https://github.com/adiit-tya
 
 ---
 
