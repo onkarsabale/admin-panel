@@ -5,7 +5,12 @@ const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 
 const farmerRoutes = require("./routes/farmerRoutes");
+const pricingRoutes = require("./routes/pricingRoutes");
+const inventoryRoutes = require("./routes/inventoryRoutes");
+
 app.use("/api/farmers", farmerRoutes);
+app.use("/api/pricing", pricingRoutes);
+app.use("/api/inventory", inventoryRoutes);
 
 
 app.use(cors());
