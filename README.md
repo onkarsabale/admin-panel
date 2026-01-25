@@ -9,17 +9,15 @@ It provides UI interfaces for weather alerts, farmer notifications, and other ad
 
 ## 👥 Collaborators
 
-This project is developed collaboratively with contributions from the following team members:
+This project is developed collaboratively with contributions :
 
-- **Onkar Sabale** — Team Lead  
+- **Onkar Sabale**
+  
   GitHub: https://github.com/onkarsabale
 
-- **Aditya Hase**                                                                                                                                                         
+- **Aditya Hase**
+  
   GitHub: https://github.com/adiit-tya
-
-- **Pushkraj Sonawane**   
-  GitHub: https://github.com/pushkrajsonawane
-
 ---
 
 ### Navigation Sidebar
