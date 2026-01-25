@@ -14,11 +14,10 @@ This project is developed collaboratively with contributions :
 - **Onkar Sabale**
   
   GitHub: https://github.com/onkarsabale
+
+- **Aditya Hase**
   
--  **Aditya Hase**
-
   GitHub: https://github.com/adiit-tya
-
 ---
 
 ### Navigation Sidebar
