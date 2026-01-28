@@ -177,48 +177,7 @@ button:hover{
     <div class="error" id="resetError"></div>
 </div>
 
-<script>
-async function login() {
-    if (loginUser.value === "" || loginPass.value === "") {
-        loginError.innerText = "Please enter credentials";
-        loginError.style.display = "block";
-        return;
-    }
-
-    loginError.style.display = "none";
-
-    try {
-        const res = await fetch("http://localhost:5000/api/admin/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: loginUser.value,
-                password: loginPass.value
-            })
-        });
-
-        const data = await res.json();
-
-       
-        if (!res.ok) {
-            loginError.innerText = data.message || "Invalid credentials";
-            loginError.style.display = "block";
-            return;
-        }
-
-        
-        localStorage.setItem("token", data.token);
-        window.location.href = "dashboard.html";
-
-    } catch (err) {
-        loginError.innerText = "Server error. Try again.";
-        loginError.style.display = "block";
-    }
-}
-
-</script>
+    <script src="../js/admin-login.js"></script>
 
 </body>
 </html>

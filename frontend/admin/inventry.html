@@ -164,28 +164,8 @@ tbody tr:hover {
                         <th>Availability Status</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Tomatoes</td>
-                        <td>Vegetables</td>
-                        <td>120 kg</td>
-                        <td>Farmer A</td>
-                        <td class="status-available">Available</td>
-                    </tr>
-                    <tr>
-                        <td>Wheat</td>
-                        <td>Grains</td>
-                        <td>0 kg</td>
-                        <td>Farmer B</td>
-                        <td class="status-out">Available</td>
-                    </tr>
-                    <tr>
-                        <td>Apples</td>
-                        <td>Fruits</td>
-                        <td>100 kg</td>
-                        <td>Farmer C</td>
-                        <td class="status-available">Available</td>
-                    </tr>
+                <tbody id="inventoryTable">
+                    
                 </tbody>
             </table>
         </div>
@@ -194,14 +174,14 @@ tbody tr:hover {
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 <div class="card" style="max-width:360px; margin:30px auto;">
     <canvas id="inventoryPieChart"></canvas>
 </div>
-<script src="inventory.js"></script>
-<script src="inventoryChart.js"></script>
 
+
+<script src="../js/inventory.js"></script>
     
 </body>
 </html>

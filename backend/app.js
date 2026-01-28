@@ -1,31 +1,34 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
 
-const adminRoutes = require("./routes/adminRoutes");
+const adminRoutes = require("./routes/admin.routes");
+const farmerRoutes = require("./routes/farmer.routes");
+const buyerRoutes = require("./routes/buyer.routes");
+const pricingRoutes = require("./routes/pricing.routes");
+
 const app = express();
 
-const farmerRoutes = require("./routes/farmerRoutes");
-const pricingRoutes = require("./routes/pricingRoutes");
-const inventoryRoutes = require("./routes/inventoryRoutes");
-const { errorHandler, notFound } = require("./middleware/errorHandler");
-
-app.use("/api/farmers", farmerRoutes);
-app.use("/api/pricing", pricingRoutes);
-app.use("/api/inventory", inventoryRoutes);
-
-
+/* =======================
+   GLOBAL MIDDLEWARE
+======================= */
 app.use(cors());
 app.use(express.json());
 
-// routes
-app.use("/api/admin", adminRoutes);
+/* =======================
+   ROUTES
+======================= */
+app.use("/admin", adminRoutes);
+app.use("/admin/pricing", pricingRoutes);
+app.use("/farmers", farmerRoutes);
+app.use("/buyers", buyerRoutes);
 
-app.get("/", (req, res) => {
-  res.send("Backend running");
-});
-
-// Error handling middleware
-app.use(notFound);
-app.use(errorHandler);
+/* =======================
+   DATABASE
+======================= */
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.error("MongoDB Error:", err));
 
 module.exports = app;

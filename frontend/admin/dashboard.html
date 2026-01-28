@@ -3,7 +3,12 @@
 <head>
 <title>Admin Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <script>
+  if (!localStorage.getItem('adminToken')) {
+    window.location.href = 'admin.html';
+  }
+</script>
+
 
 <style>
 body{
@@ -172,8 +177,8 @@ body{
 
 <body>
 
-<div id="status">
-    <div class="sidebar">
+
+<div class="sidebar">
     <h2>Admin Panel</h2>
     <a href="dashboard.html"><span>🏠</span>Admin Dashboard</a>
     <a href="farmer.html"><span>👨‍🌾</span>Farmer Management</a>
@@ -200,25 +205,25 @@ body{
         <div class="card">
             <div class="icon">👨‍🌾</div>
             <h3>Total Farmers</h3>
-            <p>120</p>
+            <p id="farmerCount">0</p>
         </div>
 
         <div class="card">
             <div class="icon">🛒</div>
             <h3>Total Buyers</h3>
-            <p>85</p>
+            <p id="buyerCount">0</p>
         </div>
 
         <div class="card">
             <div class="icon">📦</div>
-            <h3>Total Products</h3>
-            <p>230</p>
+            <h3>Total Sell Requests</h3>
+            <p id="sellRequestCount">0</p>
         </div>
 
         <div class="card">
             <div class="icon">📅</div>
-            <h3>Today’s Activity</h3>
-            <p>18</p>
+            <h3>Total Orders</h3>
+            <p id="orderCount">0</p>
         </div>
     </div>
 
@@ -247,10 +252,9 @@ body{
     </div>
 
 </div>
-</div>
 
+    <script src="../js/dashboard.js"></script>
 
-<script src="dashboard.js"></script>
 
 </body>
 </html>

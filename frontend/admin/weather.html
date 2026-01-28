@@ -235,35 +235,7 @@ body{
      
 </div>
 
-  <script>
-    document.querySelectorAll(".alert-Button").forEach(button => {
-    button.addEventListener("click", () => {
-
-        // Detect weather type
-        const card = button.closest(".weather-card");
-        const type = card.querySelector(".weather-card-heading").innerText;
-
-        // Remove empty message ON FIRST ALERT
-        const emptyMsg = document.getElementById("empty-history");
-        if (emptyMsg) emptyMsg.remove();
-
-        // Create alert history item
-        const history = document.getElementById("alert-history");
-
-        const alertItem = document.createElement("div");
-        alertItem.className = "alert-history";
-        alertItem.innerHTML = `
-            <span>⚠ ${type} alert sent to farmers</span>
-            <span>${new Date().toLocaleString()}</span>
-        `;
-
-        history.prepend(alertItem);
-
-        // Popup confirmation
-        alert("Alert sent to farmers!");
-    });
-});
-</script>
+  
 
 
 </body>
