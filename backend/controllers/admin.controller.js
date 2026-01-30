@@ -13,8 +13,6 @@ const Admin = require('../models/Admin');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-/* ================= DASHBOARD ================= */
-
 exports.dashboardStats = async (req, res) => {
   try {
     res.json({
@@ -27,8 +25,6 @@ exports.dashboardStats = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
-
-/* ================= FARMERS ================= */
 
 exports.getFarmers = async (req, res) => {
   res.json(await Farmer.find());
@@ -61,8 +57,6 @@ exports.updateFarmerStatus = async (req, res) => {
   );
 };
 
-/* ================= SELL REQUESTS ================= */
-
 exports.getSellRequests = async (req, res) => {
   res.json(await SellRequest.find());
 };
@@ -85,8 +79,6 @@ exports.updateSellRequestStatus = async (req, res) => {
     )
   );
 };
-
-/* ================= BUYERS ================= */
 
 exports.getBuyers = async (req, res) => {
   res.json(await Buyer.find());
@@ -111,8 +103,6 @@ exports.updateBuyerStatus = async (req, res) => {
   );
 };
 
-/* ================= ORDERS ================= */
-
 exports.getOrders = async (req, res) => {
   try {
     res.json(await Order.find());
@@ -124,8 +114,6 @@ exports.getOrders = async (req, res) => {
 exports.getBuyerOrders = async (req, res) => {
   res.json(await Order.find({ buyerId: req.params.id }));
 };
-
-/* ================= INVENTORY ================= */
 
 exports.getInventory = async (req, res) => {
   res.json(await Inventory.find());
@@ -141,8 +129,6 @@ exports.updateInventory = async (req, res) => {
   );
 };
 
-/* ================= PRICES ================= */
-
 exports.getPrices = async (req, res) => {
   res.json(await CropPrice.find());
 };
@@ -157,13 +143,9 @@ exports.updatePrice = async (req, res) => {
   );
 };
 
-/* ================= PREDICTIONS ================= */
-
 exports.getPredictions = async (req, res) => {
   res.json(await PricePrediction.find());
 };
-
-/* ================= ALERTS ================= */
 
 exports.getWeatherAlerts = async (req, res) => {
   res.json(await WeatherAlert.find());
@@ -177,7 +159,6 @@ exports.createSystemAlert = async (req, res) => {
   res.json(await SystemAlert.create(req.body));
 };
 
-/* ================= REPORTS ================= */
 
 exports.priceReport = async (req, res) => {
   res.json(await CropPrice.find());
@@ -191,9 +172,7 @@ exports.locationReport = async (req, res) => {
   res.json(await Farmer.find({}, 'location'));
 };
 
-/* ================= ADMIN AUTH ================= */
 
-/* CREATE ADMIN (ONLY ONCE) */
 exports.createAdmin = async (req, res) => {
   try {
     const adminExists = await Admin.countDocuments();
@@ -212,7 +191,6 @@ exports.createAdmin = async (req, res) => {
   }
 };
 
-/* ADMIN LOGIN */
 exports.loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;

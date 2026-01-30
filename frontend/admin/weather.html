@@ -234,9 +234,68 @@ body{
 
      
 </div>
+<script>
+const token = localStorage.getItem("adminToken");
 
-  
+document.querySelectorAll(".alert-Button").forEach(button => {
+  button.addEventListener("click", async () => {
 
+    const card = button.closest(".weather-card");
+    const type = card.querySelector(".weather-card-heading").innerText;
+
+    try {
+      const res = await fetch("http://localhost:5000/api/alerts/trigger", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({ type })
+      });
+
+      if (!res.ok) throw new Error("Failed");
+
+      loadAlertHistory();
+      alert("Alert sent to farmers!");
+
+    } catch (err) {
+      alert("Alert sending failed");
+      console.error(err);
+    }
+  });
+});
+
+/* LOAD ALERT HISTORY */
+async function loadAlertHistory() {
+  const historyDiv = document.getElementById("alert-history");
+  historyDiv.innerHTML = "";
+
+  const res = await fetch("http://localhost:5000/api/alerts/history", {
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  });
+
+  const data = await res.json();
+
+  if (data.length === 0) {
+    historyDiv.innerHTML = `<div class="alert-history empty">No alerts yet</div>`;
+    return;
+  }
+
+  data.forEach(alert => {
+    const div = document.createElement("div");
+    div.className = "alert-history";
+    div.innerHTML = `
+      <span>⚠ ${alert.message}</span>
+      <span>${new Date(alert.createdAt).toLocaleString()}</span>
+    `;
+    historyDiv.appendChild(div);
+  });
+}
+
+loadAlertHistory();
+</script>
 
 </body>
 </html>

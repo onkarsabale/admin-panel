@@ -21,10 +21,8 @@ async function login() {
       return;
     }
 
-    // ✅ STORE TOKEN
     localStorage.setItem('adminToken', data.token);
-
-    // ✅ REDIRECT
+ 
     window.location.href = 'dashboard.html';
 
   } catch (err) {

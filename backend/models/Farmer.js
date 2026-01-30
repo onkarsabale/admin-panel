@@ -34,7 +34,6 @@ const farmerSchema = new mongoose.Schema({
     }
   },
 
-  // ✅ ADD THIS
   active: {
     type: Boolean,
     default: true
@@ -45,5 +44,17 @@ const farmerSchema = new mongoose.Schema({
     default: Date.now
   }
 });
+alerts: [
+  {
+    alertId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "WeatherAlert"
+    },
+    acknowledgedAt: {
+      type: Date,
+      default: Date.now
+    }
+  }
+]
 
 module.exports = mongoose.model("Farmer", farmerSchema);

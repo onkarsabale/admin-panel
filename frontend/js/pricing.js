@@ -7,12 +7,10 @@ if (!token) {
   window.location.href = "admin.html";
 }
 
-/* Helper: format for UI only */
 function formatCropName(crop) {
   return crop.charAt(0).toUpperCase() + crop.slice(1);
 }
 
-/* LOAD PRICES */
 fetch("http://localhost:5000/admin/pricing/crops", {
   headers: {
     Authorization: `Bearer ${token}`
@@ -27,7 +25,7 @@ fetch("http://localhost:5000/admin/pricing/crops", {
     table.innerHTML = "";
 
     data.forEach(item => {
-      const cropKey = item.crop.toLowerCase(); // 🔥 IMPORTANT
+      const cropKey = item.crop.toLowerCase();
 
       table.innerHTML += `
         <tr>
@@ -54,7 +52,7 @@ fetch("http://localhost:5000/admin/pricing/crops", {
     alert("Failed to load pricing data");
   });
 
-/* UPDATE PRICE */
+
 function updatePrice(cropKey) {
   const priceInput = document.getElementById(`price-${cropKey}`);
   const price = Number(priceInput.value);

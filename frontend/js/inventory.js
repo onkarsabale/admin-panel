@@ -1,22 +1,31 @@
-fetch("http://localhost:5000/admin/inventory")
-  .then(res => res.json())
-  .then(items => {
-    const tbody = document.getElementById("inventoryTable");
-    tbody.innerHTML = "";
+const token = localStorage.getItem("adminToken");
 
-    items.forEach(item => {
-      const statusClass = item.availableQty > 0 ? "status-available" : "status-out";
-      const statusText = item.availableQty > 0 ? "Available" : "Out of Stock";
+fetch("http://localhost:5000/admin/inventory", {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+})
+  .then(res => {
+    if (!res.ok) throw new Error("Failed");
+    return res.json();
+  })
+  .then(data => {
+    const table = document.getElementById("inventoryTable");
+    table.innerHTML = "";
 
-      tbody.innerHTML += `
+    data.forEach(item => {
+      table.innerHTML += `
         <tr>
-          <td>${item.crop}</td>
-          <td>${item.category || "-"}</td>
-          <td>${item.availableQty} kg</td>
-          <td>${item.farmerName || "-"}</td>
-          <td class="${statusClass}">${statusText}</td>
+          <td>${item.productName}</td>
+          <td>${item.category}</td>
+          <td>${item.quantity}</td>
+          <td>${item.farmerName}</td>
+          <td>${item.availabilityStatus}</td>
         </tr>
       `;
     });
   })
-  .catch(err => console.error("Inventory error:", err));
+  .catch(err => {
+    console.error(err);
+    alert("Failed to load inventory");
+  });

@@ -1,7 +1,6 @@
 const Farmer = require("../models/Farmer");
 const CropPrice = require("../models/CropPrice");
 
-// GET all crops with prices
 exports.getCropsWithPrices = async (req, res) => {
   try {
     const farmers = await Farmer.find({}, "crops");
@@ -33,7 +32,6 @@ exports.getCropsWithPrices = async (req, res) => {
   }
 };
 
-// UPDATE / SET crop price
 exports.setCropPrice = async (req, res) => {
   try {
     const crop = req.params.crop.toLowerCase().trim();
@@ -48,6 +46,7 @@ exports.setCropPrice = async (req, res) => {
       { price },
       { upsert: true, new: true }
     );
+    
 
     res.status(200).json(updated);
   } catch (err) {
