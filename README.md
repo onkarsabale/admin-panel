@@ -1,10 +1,12 @@
 # Admin Panel
 
-> A clean, responsive admin dashboard for managing farmers, buyers, inventory, pricing & prediction, weather alerts, reports, and users.
+> A clean, responsive full-stack admin dashboard for managing farmers, buyers, inventory, pricing & prediction, weather alerts, reports, and users.
 
-This project is a web-based admin panel built with **HTML**, **CSS**, and **JavaScript**.  
+This project is a **full-stack web-based Admin Panel** built using **HTML**, **CSS**, **JavaScript** for the frontend, and **Node.js**, **Express.js**, and **MongoDB** for the backend.
+
 It provides UI interfaces for weather alerts, farmer notifications, and other administrative features for agricultural operations.
 
+The project is **frontend-focused** and demonstrates UI flow and client-side logic for an agriculture management system.
 ---
 
 ## 👥 Collaborators
@@ -37,14 +39,20 @@ This project is developed collaboratively with contributions :
 
 ## 🧩 Technologies Used
 
+### Frontend
 | Technology | Purpose |
-|------------|---------|
-| HTML       | Structure of the pages |
-| CSS        | Styling and layout |
-| JavaScript | Client-side logic for alerts and UI interactions |
-| LocalStorage | Persistent alert history (optional) |
+|----------|---------|
+| HTML | Page structure |
+| CSS | Styling and layout |
+| JavaScript | Client-side logic & API integration |
 
-No backend is required for this demo project; all interaction is done on the client side.
+### Backend
+| Technology | Purpose |
+|-----------|--------|
+| Node.js | Server runtime |
+| Express.js | REST API framework |
+| MongoDB | Database for persistent storage |
+| Mongoose | MongoDB object modeling |
 
 ---
 
@@ -55,9 +63,22 @@ No backend is required for this demo project; all interaction is done on the cli
    git clone https://github.com/onkarsabale/admin-panel.git
 
 2. Navigate to the project folder:
+   ```bash
     cd admin-panel
+   
+3. Backend Setup
+   ```bash
+   cd backend
+   npm install
+   npm start
 
-3. Open any .html file in your browser (e.g., index.html, weather.html).
+    Make sure MongoDB is running locally
+    or update the MongoDB connection string in backend/config/db.js
+
+4. Frontend Setup
+   ```bash
+   Open index.html from the frontend folder in your browser
+   (or use Live Server in VS Code).
 
 Enjoy!
 ---
