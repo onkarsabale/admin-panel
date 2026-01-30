@@ -7,6 +7,7 @@ This project is a **full-stack web-based Admin Panel** built using **HTML**, **C
 It provides UI interfaces for weather alerts, farmer notifications, and other administrative features for agricultural operations.
 
 The project is **frontend-focused** and demonstrates UI flow and client-side logic for an agriculture management system.
+
 ---
 
 ## 👥 Collaborators
@@ -24,6 +25,7 @@ This project is developed collaboratively with contributions :
 - **Pushkraj Sonawane**
 
   GitHub: https://github.com/pushkrajsonawane
+  
 ---
 
 ### Navigation Sidebar
@@ -36,6 +38,8 @@ This project is developed collaboratively with contributions :
 ✔ Reports & Analytics  
 ✔ User Management  
 ✔ Logs & Audit Trail
+
+---
 
 ## 🧩 Technologies Used
 
@@ -81,6 +85,7 @@ This project is developed collaboratively with contributions :
    (or use Live Server in VS Code).
 
 Enjoy!
+
 ---
 
 ## 📸 Project Demo Screenshots
