@@ -13,12 +13,11 @@ const inventoryRoutes = require("./routes/inventory.routes");
 const app = express();
 app.use("/admin/inventory", inventoryRoutes);
 
-/* ===== GLOBAL MIDDLEWARE (ORDER MATTERS) ===== */
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/* ===== ROUTES ===== */
+
 app.use("/admin", adminRoutes);
 app.use("/admin/pricing", pricingRoutes);
 app.use("/farmers", farmerRoutes);
